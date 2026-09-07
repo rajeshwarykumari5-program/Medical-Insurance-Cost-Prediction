@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Insurance Cost Prediction</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            background:#f4f4f4;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .container{
+            width:450px;
+            margin:40px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:#0d6efd;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#0d6efd;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#084298;
+        }
+
+        .result{
+            margin-top:20px;
+            text-align:center;
+            color:green;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Medical Insurance Cost Prediction</h1>
+
+<form method="POST">
+
+<label>Age</label>
+<input type="number" name="age" required>
+
+<label>Gender</label>
+<select name="sex" required>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+
+<label>Weight (kg)</label>
+<input type="number" step="0.1" name="weight" required>
+
+<label>Height (cm)</label>
+<input type="number" step="0.1" name="height" required>
+
+<label>Number of Children</label>
+<input type="number" name="children" required>
+
+<label>Smoker</label>
+<select name="smoker" required>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Region</label>
+<select name="region" required>
+    <option value="southwest">Southwest</option>
+    <option value="southeast">Southeast</option>
+    <option value="northwest">Northwest</option>
+    <option value="northeast">Northeast</option>
+</select>
+
+<button type="submit">Predict Insurance Cost</button>
+
+</form>
+
+{% if bmi %}
+<div class="result">
+    BMI : {{ bmi }}
+</div>
+{% endif %}
+
+{% if prediction %}
+<div class="result">
+    Predicted Insurance Cost : ₹ {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
